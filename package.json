@@ -1,0 +1,46 @@
+{
+  "_from": "cordova-plugin-camera-euroart93",
+  "_id": "cordova-plugin-camera-euroart93@1.2.0",
+  "_inBundle": false,
+  "_integrity": "sha1-7J+yqsxwuNCgc3ysCJ8AaY0J+N0=",
+  "_location": "/cordova-plugin-camera-euroart93",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-camera-euroart93",
+    "name": "cordova-plugin-camera-euroart93",
+    "escapedName": "cordova-plugin-camera-euroart93",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-camera-euroart93/-/cordova-plugin-camera-euroart93-1.2.0.tgz",
+  "_shasum": "ec9fb2aacc70b8d0a0737cac089f00698d09f8dd",
+  "_spec": "cordova-plugin-camera-euroart93",
+  "author": {
+    "name": "euroart93"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-p2pcamera",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "ISC",
+  "name": "cordova-plugin-camera-euroart93",
+  "version": "1.2.0"
+}

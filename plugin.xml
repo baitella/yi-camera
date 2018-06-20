@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-p2pcamera"
+    version="0.1.1">
+    <name>P2P Camera plugin</name>
+
+    <platform name="android">
+        <hook type="after_plugin_add" src="scripts/android/after_plugin_add.js" />
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="CameraPlugin">
+                <param name="android-package" value="com.euroart93.cordova.camera.CameraPlugin" />
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+            <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+            <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" >
+            </uses-permission>
+            <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" >
+            </uses-permission>
+
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" >
+            </uses-permission>
+            <uses-permission android:name="android.permission.WAKE_LOCK" >
+            </uses-permission>
+
+            <uses-permission android:name="android.permission.RECORD_AUDIO" />
+            <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+            
+            <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+
+            <uses-permission android:name="android.permission.VIBRATE" />
+            <!-- <uses-permission android:name="android.permission.CAMERA" /> -->
+
+            <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+
+        </config-file>
+
+        <js-module src="www/camera.js" name="camera">
+            <clobbers target="window.camera" />
+        </js-module>
+        <source-file src="src/android/res/layout/new_layout.xml" target-dir="res/layout/" />
+        
+        <source-file src="src/android/res/img/right.png" target-dir="res/drawable/" />
+        <source-file src="src/android/res/img/left.png" target-dir="res/drawable/" />
+        <source-file src="src/android/res/img/up.png" target-dir="res/drawable/" />
+        <source-file src="src/android/res/img/down.png" target-dir="res/drawable/" />
+        <source-file src="src/android/res/img/quit.png" target-dir="res/drawable/" />
+        <source-file src="src/android/res/img/sound.png" target-dir="res/drawable/" />
+        <source-file src="src/android/res/img/micon.png" target-dir="res/drawable/" />
+        <source-file src="src/android/res/img/micoff.png" target-dir="res/drawable/" />
+        <source-file src="src/android/res/img/soundoff.png" target-dir="res/drawable/" />
+
+        <source-file src="src/android/com/p2p" target-dir="src/com" />
+        <source-file src="src/android/com/smarteye" target-dir="src/com" />
+        <source-file src="src/android/com/euroart93/cordova/camera" target-dir="src/com/euroart93/cordova" />
+        <source-file src="src/android/com/utility" target-dir="src/com" />
+
+        <!--<source-file src="src/android/jniLibs/armeabi" target-dir="libs/" />-->
+
+        <!--<source-file src="src/android/jniLibs/armeabi/libSE_AudioCodec.so" target-dir="libs/" />
+        <source-file src="src/android/jniLibs/armeabi/libSE_VideoCodec.so" target-dir="libs/" />
+        <source-file src="src/android/jniLibs/armeabi/libSEAT_API.so" target-dir="libs/" />
+        <source-file src="src/android/jniLibs/armeabi/libffmpeg.so" target-dir="libs/" />-->
+
+        <source-file src="src/android/jniLibs/arm64-v8a/libffmpeg.so" target-dir="libs/arm64-v8a/" />
+        <source-file src="src/android/jniLibs/arm64-v8a/libSE_AudioCodec.so" target-dir="libs/arm64-v8a/" />
+        <source-file src="src/android/jniLibs/arm64-v8a/libSE_MP4.so" target-dir="libs/arm64-v8a/" />
+        <source-file src="src/android/jniLibs/arm64-v8a/libSE_VideoCodec.so" target-dir="libs/arm64-v8a/" />
+        <source-file src="src/android/jniLibs/arm64-v8a/libSEAT_API.so" target-dir="libs/arm64-v8a/" />
+
+        <source-file src="src/android/jniLibs/armeabi/libSE_AudioCodec.so" target-dir="libs/armeabi/" />
+        <source-file src="src/android/jniLibs/armeabi/libSE_VideoCodec.so" target-dir="libs/armeabi/" />
+        <source-file src="src/android/jniLibs/armeabi/libSEAT_API.so" target-dir="libs/armeabi/" />
+        <source-file src="src/android/jniLibs/armeabi/libffmpeg.so" target-dir="libs/armeabi/" />
+
+        <source-file src="src/android/jniLibs/armeabi/libSE_AudioCodec.so" target-dir="libs/armeabi-v7a/" />
+        <source-file src="src/android/jniLibs/armeabi/libSE_VideoCodec.so" target-dir="libs/armeabi-v7a/" />
+        <source-file src="src/android/jniLibs/armeabi/libSEAT_API.so" target-dir="libs/armeabi-v7a/" />
+        <source-file src="src/android/jniLibs/armeabi/libffmpeg.so" target-dir="libs/armeabi-v7a/" />
+
+        <source-file src="src/android/jniLibs/arm64-v8a/libSEP2P_AppSDK.so" target-dir="libs/arm64-v8a/" />
+        <source-file src="src/android/jniLibs/armeabi/libSEP2P_AppSDK.so" target-dir="libs/armeabi/" />
+        <source-file src="src/android/jniLibs/armeabi-v7a/libSEP2P_AppSDK.so" target-dir="libs/armeabi-v7a/" />
+        <source-file src="src/android/jniLibs/mips/libSEP2P_AppSDK.so" target-dir="libs/mips/" />
+        <source-file src="src/android/jniLibs/mips64/libSEP2P_AppSDK.so" target-dir="libs/mips64/" />
+        <source-file src="src/android/jniLibs/x86/libSEP2P_AppSDK.so" target-dir="libs/x86/" />
+        <source-file src="src/android/jniLibs/x86_64/libSEP2P_AppSDK.so" target-dir="libs/x86_64/" />
+    </platform>
+
+    <platform name="ios">
+
+        <config-file target="config.xml" parent="/*">
+            <feature name="CameraPlugin">
+                <param name="ios-package" value="CPCCameraPlugin" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <js-module src="www/camera.js" name="camera">
+            <clobbers target="window.camera" />
+        </js-module>
+        <hook type="after_plugin_add" src="scripts/ios/after_plugin_add.js" />
+        
+
+        <header-file src="src/ios/logic/CPCCameraPlugin.h" target-dir="euroart93" />
+        <source-file src="src/ios/logic/CPCCameraPlugin.mm" target-dir="euroart93" compiler-flags="-fno-objc-arc"  />
+    
+        <source-file src="src/ios/logic/KYLCamera.mm" target-dir="euroart93" compiler-flags="-fno-objc-arc"  />
+        <header-file src="src/ios/logic/KYLCamera.h" target-dir="euroart93" />
+
+        <source-file src="src/ios/logic/CPCQRReader.m" target-dir="euroart93" compiler-flags="-fno-objc-arc"  />
+        <header-file src="src/ios/logic/CPCQRReader.h" target-dir="euroart93" />
+
+        <source-file src="src/ios/logic/CPCCameraWifi.m" target-dir="euroart93" compiler-flags="-fno-objc-arc"  />
+        <header-file src="src/ios/logic/CPCCameraWifi.h" target-dir="euroart93" />
+
+        <source-file src="src/ios/logic/KYLCameraMonitor.mm" target-dir="euroart93" compiler-flags="-fno-objc-arc"  />
+        <header-file src="src/ios/logic/KYLCameraMonitor.h" target-dir="euroart93" />
+
+        <source-file src="src/ios/logic/APICommon.mm" target-dir="euroart93" compiler-flags="-fno-objc-arc"  />
+        <header-file src="src/ios/logic/APICommon.h" target-dir="euroart93" />
+
+        <source-file src="src/ios/logic/KYLSearchTool.m" target-dir="euroart93" compiler-flags="-fno-objc-arc"  />
+        <header-file src="src/ios/logic/KYLSearchTool.h" target-dir="euroart93" />
+
+        <source-file src="src/ios/logic/MBProgressHUD.m" target-dir="euroart93" compiler-flags="-fno-objc-arc"  />
+        <header-file src="src/ios/logic/MBProgressHUD.h" target-dir="euroart93" />
+
+    
+        <source-file src="src/ios/logic/KYLCircleBuf.mm" target-dir="euroart93" compiler-flags="-fno-objc-arc"  />
+        <header-file src="src/ios/logic/KYLCircleBuf.h" target-dir="euroart93" />
+
+        <header-file src="src/ios/logic/KYLMontiorTouchProtocol.h" target-dir="euroart93" />
+        
+        <header-file src="src/ios/logic/KYLCameraProtocol.h" target-dir="euroart93" />
+        <header-file src="src/ios/logic/KYLSearchProtocol.h" target-dir="euroart93" />
+        <header-file src="src/ios/logic/KYLSetWifiProtocol.h" target-dir="euroart93" />
+        <header-file src="src/ios/logic/KYLSetUserInfoProtocol.h" target-dir="euroart93" />
+        <header-file src="src/ios/logic/KYLSetFTPInfoProtocol.h" target-dir="euroart93" />
+        <header-file src="src/ios/logic/KYLSetAlarmInfoProtocol.h" target-dir="euroart93" />
+        <header-file src="src/ios/logic/KYLSetDatetimeProtocol.h" target-dir="euroart93" />
+        <header-file src="src/ios/logic/KYLSetEmailProtocol.h" target-dir="euroart93" />
+        <header-file src="src/ios/logic/KYLSetCameraParamsProtocol.h" target-dir="euroart93" />
+        <header-file src="src/ios/logic/KYLSetSDCardScheduleProtocol.h" target-dir="euroart93" />
+        <header-file src="src/ios/logic/KYLEventProtocol.h" target-dir="euroart93" />
+        <header-file src="src/ios/logic/KYLDefine.h" target-dir="euroart93" />
+
+        <header-file src="src/ios/logic/KYLImageProtocol.h" target-dir="euroart93" />
+        <header-file src="src/ios/logic/KYLSnapPictureProtocol.h" target-dir="euroart93" />
+        <header-file src="src/ios/logic/KYLRemoteRecordPlayProtocol.h" target-dir="euroart93" />
+        <header-file src="src/ios/logic/KYLRemoteRecordPlayImageProtocol.h" target-dir="euroart93" />
+        <header-file src="src/ios/logic/KYLDeviceStatusChangedProtocol.h" target-dir="euroart93" />
+        <header-file src="src/ios/logic/KYLCameraPushFunctionSetProtocol.h" target-dir="euroart93" />
+
+        <source-file src="src/ios/logic/KYLRecordFileInfo.m" target-dir="euroart93" compiler-flags="-fno-objc-arc"  />
+        <header-file src="src/ios/logic/KYLRecordFileInfo.h" target-dir="euroart93" />
+
+        <source-file src="src/ios/logic/KYLComFunUtil.m" target-dir="euroart93" compiler-flags="-fno-objc-arc"  />
+        <header-file src="src/ios/logic/KYLComFunUtil.h" target-dir="euroart93" />
+        
+        <source-file src="src/ios/logic/KYLOpenALPlayer.m" target-dir="euroart93" compiler-flags="-fno-objc-arc"  />
+        <header-file src="src/ios/logic/KYLOpenALPlayer.h" target-dir="euroart93" />
+
+        <source-file src="src/ios/logic/PCMRecorder.mm" target-dir="euroart93" compiler-flags="-fno-objc-arc"  />
+        <header-file src="src/ios/logic/PCMRecorder.h" target-dir="euroart93" />
+
+        <source-file src="src/ios/logic/KYLCurrentPlayRecordInfo.m" target-dir="euroart93" compiler-flags="-fno-objc-arc"  />
+        <header-file src="src/ios/logic/KYLCurrentPlayRecordInfo.h" target-dir="euroart93" />
+
+        <source-file src="src/ios/img/right.png" target-dir="euroart93" />
+        <source-file src="src/ios/img/left.png" target-dir="euroart93" />
+        <source-file src="src/ios/img/up.png" target-dir="euroart93" />
+        <source-file src="src/ios/img/down.png" target-dir="euroart93" />
+        <source-file src="src/ios/img/quit.png" target-dir="euroart93" />
+        <source-file src="src/ios/img/sound.png" target-dir="euroart93" />
+        <source-file src="src/ios/img/micon.png" target-dir="euroart93" />
+        <source-file src="src/ios/img/micoff.png" target-dir="euroart93" />
+        <source-file src="src/ios/img/soundoff.png" target-dir="euroart93" />
+
+    
+        <header-file src="src/ios/include/mp4.h" target-dir="p2p" />
+        <header-file src="src/ios/include/SE_AudioCodec.h" target-dir="p2p" />
+        <header-file src="src/ios/include/SE_VideoCodec.h" target-dir="p2p" />
+        <header-file src="src/ios/include/SEAT_API.h" target-dir="p2p" />
+        <header-file src="src/ios/include/SEAT_Error.h" target-dir="p2p" />
+        <header-file src="src/ios/include/SEP2P_API.h" target-dir="p2p" />
+        <header-file src="src/ios/include/SEP2P_Define.h" target-dir="p2p" />
+        <header-file src="src/ios/include/SEP2P_Error.h" target-dir="p2p" />
+        <header-file src="src/ios/include/SEP2P_Type.h" target-dir="p2p" />
+
+        <source-file src="src/ios/libs/libavcodec.a" framework="true" />
+        <source-file src="src/ios/libs/libavformat.a" framework="true" />
+        <source-file src="src/ios/libs/libavutil.a" framework="true" />
+        <source-file src="src/ios/libs/libSE_AudioCodec.a" framework="true" />
+        <source-file src="src/ios/libs/libSE_VideoCodec.a" framework="true" />
+        <source-file src="src/ios/libs/libSE_MP4.a" framework="true" />
+        <source-file src="src/ios/libs/libSmartP2P_API.a" framework="true" />
+        <source-file src="src/ios/libs/libSEAT_API.a" framework="true" />
+        <source-file src="src/ios/libs/libSEP2P_AppSDK.a" framework="true" />
+
+        <framework src="libstdc++.dylib" />
+        <framework src="OpenAL.framework" />
+        <framework src="libbz2.dylib" />
+        <framework src="libiconv.dylib" />
+    </platform>
+</plugin>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_gravity="center"
+>
+
+    <ImageView
+        android:id="@+id/imageview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/activity_name" />
+
+    <LinearLayout
+        android:id="@+id/greyLayout"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:layout_alignLeft="@+id/imageview"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="true"
+        android:background="#afaea3a3"
+        android:alpha="0.6">
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/moveUpView"
+            android:src="@drawable/up"
+            android:layout_margin="5dp" />
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/moveDownView"
+            android:src="@drawable/down"
+            android:layout_margin="5dp" />
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/moveLeftView"
+            android:src="@drawable/left"
+            android:layout_margin="5dp" />
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/moveRightView"
+            android:src="@drawable/right"
+            android:layout_margin="5dp" />
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/startTalking"
+            android:src="@drawable/micoff"
+            android:layout_margin="5dp" />
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/startAudio"
+            android:src="@drawable/soundoff"
+            android:layout_margin="5dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/greyLayoutTop"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#afaea3a3"
+        android:alpha="0.6"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:weightSum="2"
+        android:gravity="left"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Basic camera"
+            android:id="@+id/cammName"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#ffffff"
+            android:textColorHighlight="#ffffff"
+            android:textSize="40px"
+            android:textStyle="bold"
+            android:fontFamily="Halvetica"
+            android:gravity="center"
+            android:singleLine="false" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:id="@+id/exitVideoView"
+        android:src="@drawable/quit"
+        android:layout_margin="5dp"
+        android:focusable="true" />
+</RelativeLayout>
