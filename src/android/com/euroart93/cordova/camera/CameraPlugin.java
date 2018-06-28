@@ -50,6 +50,11 @@ import android.view.MotionEvent;
 import android.content.pm.ActivityInfo;
 import android.util.Log;
 
+
+import android.content.pm.PackageManager;
+import android.support.v4.content.ContextCompat;
+import android.Manifest;
+
 public class CameraPlugin extends CordovaPlugin implements ILANSearch, IEvent {
     private static final String TAG = "CameraPlugin";
 
@@ -129,6 +134,7 @@ public class CameraPlugin extends CordovaPlugin implements ILANSearch, IEvent {
     private String recordFilename = null;
 
     private CallbackContext videoClickCallbackContext = null;
+    
 
     @Override
     public void initialize(final CordovaInterface cordova, final CordovaWebView webView) {
@@ -271,24 +277,34 @@ public class CameraPlugin extends CordovaPlugin implements ILANSearch, IEvent {
 
         moveRightView.bringToFront();
 
-        startTalking = (ImageView)viewGroup.findViewById(R.id.startTalking);
-        startTalking.setVisibility(View.VISIBLE);
-        startTalking.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Log.i(TAG, "onClick");
-                        if(istalk) {
-                            camera.stopTalk();
-                            startTalking.setImageResource(R.drawable.micoff);
-                            istalk = false;
-                        } else {
-                            istalk = true;
-                            camera.startTalk();
-                            startTalking.setImageResource(R.drawable.micon);
+        //check microphone permission
+        if (ContextCompat.checkSelfPermission(this.cordova.getActivity(), Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
+            Log.i(TAG, "granted2");
+            startTalking = (ImageView)viewGroup.findViewById(R.id.startTalking);
+            startTalking.setVisibility(View.VISIBLE);
+            startTalking.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Log.i(TAG, "onClick");
+                            if(istalk) {
+                                camera.stopTalk();
+                                startTalking.setImageResource(R.drawable.micoff);
+                                istalk = false;
+                            } else {
+                                istalk = true;
+                                camera.startTalk();
+                                startTalking.setImageResource(R.drawable.micon);
+                            }
                         }
-                    }
-                });
-        startTalking.bringToFront();
+                    });
+
+            startTalking.bringToFront();
+        } else { 
+            Log.i(TAG, "not granted2");
+            startTalking = (ImageView)viewGroup.findViewById(R.id.startTalking);
+            startTalking.setVisibility(View.INVISIBLE);
+        }
+
 
         startAudio = (ImageView)viewGroup.findViewById(R.id.startAudio);
         startAudio.setVisibility(View.VISIBLE);
@@ -312,7 +328,7 @@ public class CameraPlugin extends CordovaPlugin implements ILANSearch, IEvent {
         
 
     }
-
+    
     @Override
     protected void pluginInitialize() {
         super.pluginInitialize();
